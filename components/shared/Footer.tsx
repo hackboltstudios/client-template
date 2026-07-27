@@ -4,11 +4,12 @@ import Link from "next/link";
 
 import {
     ArrowUpRight,
-    Mail,
     ShoppingBag,
-    Sparkles,
+    Sparkles, X,
 } from "lucide-react";
-import { FaInstagram, } from "react-icons/fa";
+import {FaFacebook, FaInstagram, FaLinkedin, FaTiktok,} from "react-icons/fa";
+import { DummyData } from "@/app/data/DummyData"
+import {FaXTwitter} from "react-icons/fa6";
 
 const Footer = () => {
     return (
@@ -60,7 +61,7 @@ const Footer = () => {
                             {/* Brand Name */}
                             <div>
                                 <h2 className="text-xl font-black uppercase tracking-[0.2em] text-white">
-                                    Psycho Society
+                                    {DummyData.ClientBusinessName}
                                 </h2>
 
                                 <p className="mt-1 text-[9px] uppercase tracking-[0.35em] text-gray-600">
@@ -138,31 +139,44 @@ const Footer = () => {
 
                             {/* Instagram */}
                             <SocialButton
-                                href="https://www.instagram.com/"
-                                icon={<FaInstagram className="h-5 w-5" />}
+                                href={DummyData.Instagram}
+                                icon={
+                                    <FaInstagram className="h-5 w-5" />
+                                }
                                 label="Instagram"
                             />
 
                             {/* TikTok */}
                             <SocialButton
-                                href="https://www.tiktok.com/"
+                                href={DummyData.Tiktok}
                                 icon={
-                                    <span className="text-lg font-black">
-                                        ♪
-                                    </span>
+                                    <FaTiktok className="h-5 w-5"/>
                                 }
                                 label="TikTok"
                             />
 
                             {/* Facebook */}
                             <SocialButton
-                                href="https://www.facebook.com/"
+                                href={DummyData.Facebook}
                                 icon={
-                                    <span className="text-lg font-black">
-                                        f
-                                    </span>
+                                    <FaFacebook className="h-5 w-5"/>
                                 }
                                 label="Facebook"
+                            />
+
+                            <SocialButton
+                                href={DummyData.Twitter}
+                                icon={
+                                    <FaXTwitter className="h-5 w-5"/>
+                                }
+                                label="Twitter"
+                            />
+                            <SocialButton
+                                href={DummyData.LinkedIn}
+                                icon={
+                                    <FaLinkedin className="h-5 w-5"/>
+                                }
+                                label="LinkedIn"
                             />
 
                         </div>
@@ -199,14 +213,14 @@ const Footer = () => {
                 <div className="mt-14 border-y border-white/10 py-8 text-center">
 
                     <p className="text-3xl font-black uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
-                        Wear Your
+                        {DummyData.HeroSectionTitleLine1}
                         <span className="text-primary">
-                            {" "}Identity.
+                            {" "}{DummyData.HeroSectionTitleHighlight}
                         </span>
                     </p>
 
                     <p className="mt-2 text-xs font-medium uppercase tracking-[0.35em] text-gray-600">
-                        Be Different.
+                        {DummyData.HeroSectionTitleLine2}
                     </p>
 
                 </div>
@@ -217,7 +231,7 @@ const Footer = () => {
 
                 <div className="mt-8 flex flex-col items-center justify-between gap-4 text-xs text-gray-600 md:flex-row">
                     <p>
-                        © {new Date().getFullYear()} Psycho Society.
+                        © {new Date().getFullYear()} {DummyData.ClientBusinessName +" "}
                         All rights reserved.
                     </p>
 

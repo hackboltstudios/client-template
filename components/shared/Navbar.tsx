@@ -16,6 +16,7 @@ import { ModeToggle } from "@/components/theme/Theme-Toggle";
 import { ColorTheme } from "@/components/theme/Color-Theme";
 import {FaUser} from "react-icons/fa";
 import {Button} from "@/components/ui/button";
+import {DummyData} from "@/app/data/DummyData";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -77,7 +78,7 @@ const Navbar = () => {
                     {/* Brand Name */}
                     <div className="hidden sm:block">
                         <span className="text-sm font-black uppercase tracking-[0.2em] text-white transition-colors duration-300 group-hover:text-primary">
-                            Psycho Society
+                            {DummyData.ClientBusinessName}
                         </span>
 
                         <p className="text-[9px] uppercase tracking-[0.3em] text-gray-600">

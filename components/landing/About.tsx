@@ -1,11 +1,15 @@
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import { DummyData } from "@/app/data/DummyData";
 
 export default function About() {
     return (
         <div className="px-6 sm:px-10">
-            <section id="about" className="mx-auto max-w-7xl py-24 lg:py-32">
+            <section
+                id="about"
+                className="mx-auto max-w-7xl py-24 lg:py-32"
+            >
                 <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
 
                     {/* LEFT — 3D PRODUCT */}
@@ -27,8 +31,8 @@ export default function About() {
                         {/* Floating Shirt */}
                         <div className="relative z-10 animate-float">
                             <Image
-                                src="/images/StonerShirt.png"
-                                alt="Psycho Society Streetwear"
+                                src={DummyData.AboutSectionImage}
+                                alt={`${DummyData.ClientBusinessName} Streetwear`}
                                 width={600}
                                 height={600}
                                 className="pointer-events-none select-none object-contain drop-shadow-[0_35px_50px_rgba(0,0,0,0.7)]"
@@ -38,96 +42,67 @@ export default function About() {
                         {/* Floating Label */}
                         <div className="absolute bottom-16 left-0 z-20 rounded-2xl border border-white/10 bg-black/70 px-5 py-4 shadow-2xl backdrop-blur-xl sm:left-4">
                             <p className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                                Psycho Society
+                                {DummyData.AboutSectionLabel}
                             </p>
 
-                            <p className="mt-1 text-sm font-bold ">
-                                More Than Clothing.
+                            <p className="mt-1 text-sm font-bold">
+                                {DummyData.AboutSectionLabelDescription}
                             </p>
                         </div>
                     </div>
 
                     {/* RIGHT — ABOUT CONTENT */}
                     <div>
+
                         {/* Section Label */}
                         <Badge
                             variant="secondary"
                             className="mb-5 border border-primary/20 bg-primary/10 px-4 py-2 text-primary"
                         >
-                            Our Story
+                            {DummyData.AboutSectionBadge}
                         </Badge>
 
                         {/* Heading */}
-                        <h2 className="text-4xl font-black tracking-tight  sm:text-5xl lg:text-6xl">
-                            More Than
+                        <h2 className="text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+                            {DummyData.AboutSectionTitleLine1}
+
                             <br />
+
                             <span className="text-primary">
-                                Just A T-Shirt.
+                                {DummyData.AboutSectionTitleHighlight}
                             </span>
                         </h2>
 
                         {/* Main Story */}
                         <p className="mt-8 text-base leading-8 text-gray-400 sm:text-lg">
-                            Psycho Society was created for those who aren't afraid
-                            to stand out. We believe clothing is more than something
-                            you wear — it's a reflection of who you are, what you
-                            believe, and how you see the world.
+                            {DummyData.AboutSectionP1}
                         </p>
 
+                        {/* Second Story */}
                         <p className="mt-5 text-base leading-8 text-gray-400 sm:text-lg">
-                            From bold graphics to custom creations, every piece is
-                            designed to make a statement. Our goal is simple:
-                            create unique streetwear that gives you the freedom
-                            to express yourself without limits.
+                            {DummyData.AboutSectionP2}
                         </p>
 
                         {/* Brand Values */}
                         <div className="mt-10 grid gap-6 sm:grid-cols-3">
 
-                            <div>
-                                <div className="mb-3 text-2xl font-black text-primary">
-                                    01
+                            {DummyData.AboutValues.map((value) => (
+                                <div key={value.Number}>
+
+                                    <div className="mb-3 text-2xl font-black text-primary">
+                                        {value.Number}
+                                    </div>
+
+                                    <h3 className="font-bold">
+                                        {value.Title}
+                                    </h3>
+
+                                    <p className="mt-2 text-sm leading-6 text-gray-500">
+                                        {value.Description}
+                                    </p>
+
                                 </div>
-
-                                <h3 className="font-bold ">
-                                    Be Original
-                                </h3>
-
-                                <p className="mt-2 text-sm leading-6 text-gray-500">
-                                    Stand out from the crowd and embrace what
-                                    makes you different.
-                                </p>
-                            </div>
-
-                            <div>
-                                <div className="mb-3 text-2xl font-black text-primary">
-                                    02
-                                </div>
-
-                                <h3 className="font-bold ">
-                                    Stay Creative
-                                </h3>
-
-                                <p className="mt-2 text-sm leading-6 text-gray-500">
-                                    Bold ideas, unique designs, and no limits
-                                    on self-expression.
-                                </p>
-                            </div>
-
-                            <div>
-                                <div className="mb-3 text-2xl font-black text-primary">
-                                    03
-                                </div>
-
-                                <h3 className="font-bold ">
-                                    Join The Society
-                                </h3>
-
-                                <p className="mt-2 text-sm leading-6 text-gray-500">
-                                    Become part of a community that celebrates
-                                    individuality.
-                                </p>
-                            </div>
+                            ))}
 
                         </div>
                     </div>

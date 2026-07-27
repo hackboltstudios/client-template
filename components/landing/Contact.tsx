@@ -1,18 +1,14 @@
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
-import { ArrowRight } from "lucide-react";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import ContactForm from "@/components/forms/ContactForm";
+import { DummyData } from "@/app/data/DummyData";
 
 export default function Contact() {
     return (
         <div className="px-6 sm:px-10">
-            <section id="contact" className="mx-auto max-w-7xl py-24 ">
-
-                {/* Full Width Background */}
-
+            <section
+                id="contact"
+                className="relative mx-auto max-w-7xl overflow-hidden py-24"
+            >
 
                 {/* Red Glow */}
                 <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-primary/10 blur-[110px]" />
@@ -36,67 +32,78 @@ export default function Contact() {
                                 variant="secondary"
                                 className="mb-5 w-fit border border-primary/20 bg-primary/10 px-4 py-2 text-primary"
                             >
-                                Get In Touch
+                                {DummyData.ContactSectionBadge}
                             </Badge>
 
                             {/* Heading */}
-                            <h2 className="text-4xl font-black tracking-tight  sm:text-5xl lg:text-6xl">
-                                Let's Create
+                            <h2 className="text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+
+                                {DummyData.ContactSectionTitleLine1}
+
                                 <br />
+
                                 <span className="text-primary">
-                                    Something Different.
+                                    {DummyData.ContactSectionTitleHighlight}
                                 </span>
+
                             </h2>
 
                             {/* Description */}
                             <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
-                                {"Got an idea for your next custom T-shirt, hoodie,\n" +
-                                    " hat, or streetwear piece? Tell us what you're\n" +
-                                    " thinking and let's bring your vision to life."}
+                                {DummyData.ContactSectionP}
                             </p>
 
                             {/* Brand Statement */}
                             <div className="mt-8 border-l-2 border-primary/50 pl-5">
+
                                 <p className="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">
-                                    Psycho Society
+                                    {DummyData.ContactSectionBrandName}
                                 </p>
 
-                                <p className="mt-2 text-lg font-semibold ">
-                                    Wear Your Identity. Be Different.
+                                <p className="mt-2 text-lg font-semibold">
+                                    {DummyData.ContactSectionBrandDescription}
                                 </p>
+
                             </div>
 
                             {/* Contact Details */}
                             <div className="mt-8 space-y-4">
 
+                                {/* Email */}
                                 <div>
                                     <p className="text-xs uppercase tracking-widest text-gray-600">
-                                        Email
+                                        {DummyData.ContactEmailLabel}
                                     </p>
 
-                                    <p className="mt-1 text-sm text-muted-foreground">
-                                        hello@psychosociety.com
-                                    </p>
+                                    <a
+                                        href={`mailto:${DummyData.ContactEmail}`}
+                                        className="mt-1 block text-sm text-muted-foreground transition-colors hover:text-primary"
+                                    >
+                                        {DummyData.ContactEmail}
+                                    </a>
                                 </div>
 
+                                {/* Custom Orders */}
                                 <div>
                                     <p className="text-xs uppercase tracking-widest text-gray-600">
-                                        Custom Orders
+                                        {DummyData.ContactOrdersLabel}
                                     </p>
 
                                     <p className="mt-1 text-sm text-muted-foreground">
-                                        Custom T-Shirts • Embroidery • UV DTF • Hats
+                                        {DummyData.ContactOrdersDescription}
                                     </p>
                                 </div>
 
                             </div>
+
                         </div>
 
                         {/* RIGHT — CONTACT FORM */}
                         <ContactForm />
-                        
+
                     </div>
                 </div>
+
             </section>
         </div>
     );

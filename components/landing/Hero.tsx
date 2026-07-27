@@ -1,52 +1,48 @@
-import {Separator} from "@/components/ui/separator";
-import {Badge} from "@/components/ui/badge";
-import {Button} from "@/components/ui/button";
-import {ArrowRight} from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-
+import { DummyData } from "@/app/data/DummyData";
+import Link from "next/link";
 
 export default function Hero() {
     return (
         <div className="relative mt-10 w-full overflow-hidden">
-
             <section className="relative w-full py-20 sm:py-24 lg:py-28">
-
                 <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
-
                     <div className="grid min-w-0 items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
                         {/* LEFT */}
                         <div className="min-w-0">
 
+                            {/* Business Name */}
                             <Badge
                                 variant="secondary"
                                 className="mb-6 border border-primary/20 bg-primary/10 px-4 py-2 text-primary"
                             >
-                                Welcome to Psycho Society
+                                Welcome to {DummyData.ClientBusinessName}
                             </Badge>
 
+                            {/* Hero Title */}
                             <h1 className="text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-                                Wear Your
-                                <br />
-
+                                {DummyData.HeroSectionTitleLine1}
+                                <br/>
                                 <span className="text-primary">
-                                    Identity.
+                                    {DummyData.HeroSectionTitleHighlight}
                                 </span>
-
-                                <br />
-
+                                <br/>
                                 <span>
-                                    Be Different.
+                                    {DummyData.HeroSectionTitleLine2}
                                 </span>
                             </h1>
 
+                            {/* Hero Description */}
                             <p className="mt-8 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
-                                Welcome to Psycho Society — where bold designs,
-                                custom streetwear, and creative expression come
-                                together. Create your look. Make your statement.
-                                Join the society.
+                                {DummyData.HeroSectionP}
                             </p>
 
+                            {/* CTA Button */}
                             <div className="mt-10 flex flex-wrap gap-4">
                                 <Button
                                     variant="outline"
@@ -67,15 +63,19 @@ export default function Hero() {
                                         hover:bg-primary/10
                                     "
                                 >
-                                    Explore Psycho Society
-
-                                    <ArrowRight
-                                        className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                                        size={18}
-                                    />
+                                    <Link href={DummyData.HeroSectionButtonLink}>
+                                        <div className="inline-flex items-center">
+                                            {DummyData.HeroSectionButtonText}
+                                            <ArrowRight
+                                                className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                                                size={18}
+                                            />
+                                        </div>
+                                    </Link>
                                 </Button>
                             </div>
 
+                            {/* Stats */}
                             <div className="mt-12 flex flex-wrap gap-x-8 gap-y-6 border-t border-border pt-8">
 
                                 <div>
@@ -126,11 +126,11 @@ export default function Hero() {
                             {/* Ground Shadow */}
                             <div className="pointer-events-none absolute bottom-8 left-1/2 h-10 w-52 -translate-x-1/2 rounded-[50%] bg-black/30 blur-2xl dark:bg-black/80 sm:w-72" />
 
-                            {/* T-Shirt */}
+                            {/* Hero Image */}
                             <div className="relative z-10 w-full max-w-[550px] animate-float">
                                 <Image
-                                    src="/images/Stoner.png"
-                                    alt="Psycho Society Streetwear T-Shirt"
+                                    src={DummyData.HeroSectionImage}
+                                    alt={`${DummyData.ClientBusinessName} Hero Image`}
                                     width={650}
                                     height={650}
                                     priority
@@ -142,11 +142,11 @@ export default function Hero() {
                             <div className="absolute bottom-8 left-2 z-20 rounded-2xl border border-border bg-background/70 px-4 py-3 shadow-xl backdrop-blur-xl sm:bottom-12 sm:left-4 sm:px-5 sm:py-4">
 
                                 <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-xs">
-                                    Psycho Society
+                                    {DummyData.ClientBusinessName}
                                 </p>
 
                                 <p className="mt-1 text-xs font-bold sm:text-sm">
-                                    Wear Your Identity.
+                                    {DummyData.HeroSectionTitleLine1 + " " + DummyData.HeroSectionTitleHighlight + " " + DummyData.HeroSectionTitleLine2}
                                 </p>
 
                             </div>
@@ -159,9 +159,7 @@ export default function Hero() {
                         </div>
 
                     </div>
-
                 </div>
-
             </section>
 
             <Separator />
